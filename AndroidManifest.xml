@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.xxun.watch.stepcountservices">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+
+    <application
+        android:name=".stepsRanksApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <!--provider
+            android:name=".provider.MyContentProvider"
+            android:authorities="com.xxun.watch.stepCountProvider"
+            android:exported="true"/-->
+        <service
+            android:name="com.xiaoxun.sdk.service.XiaoXunNetService"
+            android:enabled="true"
+            android:exported="false"/>
+
+        <!--service
+            android:name=".StepsCountService"
+            android:enabled="true"
+            android:exported="false" /-->
+
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!--receiver android:name=".MyReceiver">
+            <intent-filter>
+                <action android:name="com.xxun.watch.stepcountservices.steps.count.alarm.flags" />
+                <action android:name="com.xxun.watch.stepcountservices.action.broast.sensor.steps"/>
+		        <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="brocast.action.step.current.noti"/>
+            </intent-filter>
+        </receiver-->
+    </application>
+
+</manifest>
